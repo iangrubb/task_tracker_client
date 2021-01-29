@@ -6,7 +6,7 @@ import ProjectForm from '../components/ProjectForm'
 import TaskDisplay from '../components/TaskDisplay'
 import TaskForm from '../components/TaskForm'
 
-const ProjectShow = ({ server }) => {
+const ProjectShow = ({ server, setActiveTimer }) => {
 
     const { id } = useParams()
 
@@ -67,7 +67,7 @@ const ProjectShow = ({ server }) => {
             <button className="button invert" onClick={deleteProject}>Delete</button>
             <TaskForm projectId={project.id} submitData={createTask}/>
             <h3>Tasks</h3>
-            {tasks.map(task => <TaskDisplay key={task.id} {...task} projectId={project.id} deleteTask={deleteTask} updateTask={updateTask} server={server}/>)}
+            {tasks.map(task => <TaskDisplay key={task.id} {...task} projectId={project.id} deleteTask={deleteTask} updateTask={updateTask} setActiveTimer={setActiveTimer} server={server}/>)}
         </div>
     )
 }
